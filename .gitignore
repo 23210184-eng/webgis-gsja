@@ -1,0 +1,33 @@
+node_modules/
+playwright-report/
+test-results/
+
+
+# Local configuration
+.env
+.env.*
+!.env.example
+
+# Local database credentials
+config/database.php
+
+# Uploaded church photos
+uploads/gereja/*
+!uploads/gereja/.gitkeep
+
+# Temporary files
+*.log
+*.tmp
+.DS_Store
+Thumbs.db
+
+# Editor settings
+.vscode/
+.idea/
+
+
+# Playwright temporary recordings
+.playwright-mcp/
+
+# Journal reference documents
+reference/

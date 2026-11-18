@@ -1,0 +1,1196 @@
+:root {
+    --navy-darkest: #0b1320;
+    --navy-dark: #111c2e;
+    --navy-surface: #18253b;
+    --navy-active: #1e304d;
+    --navy-border: #243653;
+    --primary-blue: #1e40af;
+    --accent-blue: #38bdf8;
+    --btn-terracotta: #b93826;
+    --btn-terracotta-hover: #9c2e1f;
+    --bg-main: #f4f6f9;
+    --bg-card: #ffffff;
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --text-muted: #94a3b8;
+    --border-light: #e2e8f0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: var(--text-primary);
+    background: var(--bg-main);
+    color-scheme: light;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; min-width: 320px; }
+a { color: var(--primary-blue); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ==========================================================================
+   Admin Master Shell & Navy Sidebar
+   ========================================================================== */
+.admin-body {
+    background: var(--bg-main);
+    min-height: 100vh;
+}
+
+.admin-wrapper {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+}
+
+/* Sidebar Navigasi Warna Navy */
+.admin-sidebar {
+    width: 250px;
+    background: var(--navy-dark);
+    color: #e2e8f0;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    border-right: 1px solid var(--navy-border);
+    z-index: 100;
+}
+
+.sidebar-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1.25rem 1.25rem;
+    background: var(--navy-darkest);
+    border-bottom: 1px solid var(--navy-border);
+}
+
+.brand-badge {
+    display: grid;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    background: var(--btn-terracotta);
+    color: #ffffff;
+    font-size: 1.2rem;
+    font-weight: 800;
+    border-radius: 6px;
+    box-shadow: 0 2px 6px rgba(185, 56, 38, 0.4);
+}
+
+.brand-meta {
+    display: flex;
+    flex-direction: column;
+}
+
+.brand-name {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: -0.01em;
+}
+
+.brand-sub {
+    font-size: 0.75rem;
+    color: #cbd5e1;
+    font-weight: 400;
+}
+
+/* Profile Bar di Sidebar */
+.sidebar-profile {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.9rem 1.25rem;
+    background: var(--navy-surface);
+    border-bottom: 1px solid var(--navy-border);
+}
+
+.profile-avatar {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: #3b82f6;
+    color: #ffffff;
+    display: grid;
+    place-items: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.profile-meta {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.profile-name {
+    font-size: 0.88rem;
+    color: #ffffff;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.profile-badge {
+    font-size: 0.72rem;
+    color: #94a3b8;
+}
+
+/* Navigasi Sidebar */
+.sidebar-nav {
+    flex: 1;
+    padding: 0.85rem 0.65rem;
+    overflow-y: auto;
+}
+
+.nav-section-title {
+    margin: 0.5rem 0.6rem 0.4rem;
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #64748b;
+}
+
+.nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.65rem 0.8rem;
+    border-radius: 6px;
+    color: #cbd5e1;
+    font-size: 0.88rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.15s ease;
+}
+
+.nav-link:hover {
+    background: var(--navy-surface);
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.nav-link.active {
+    background: var(--navy-active);
+    color: #ffffff;
+    font-weight: 600;
+    border-left: 3px solid var(--accent-blue);
+    border-radius: 2px 6px 6px 2px;
+}
+
+.nav-icon {
+    width: 17px;
+    height: 17px;
+    flex-shrink: 0;
+}
+
+/* Sidebar Footer & Logout */
+.sidebar-footer {
+    padding: 0.85rem 1rem;
+    border-top: 1px solid var(--navy-border);
+    background: var(--navy-darkest);
+}
+
+.sidebar-user-footer {
+    margin-bottom: 0.6rem;
+}
+
+.sidebar-user-footer strong {
+    display: block;
+    color: #ffffff;
+    font-size: 0.86rem;
+}
+
+.sidebar-user-footer span {
+    display: block;
+    color: #94a3b8;
+    font-size: 0.75rem;
+}
+
+.sidebar-logout-form {
+    margin: 0;
+}
+
+.sidebar-logout-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.45rem 0.6rem;
+    border: none;
+    background: transparent;
+    color: #94a3b8;
+    font-size: 0.84rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.sidebar-logout-btn:hover {
+    color: #f87171;
+}
+
+/* ==========================================================================
+   Admin Main Area & Topbar
+   ========================================================================== */
+.admin-main-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    background: var(--bg-main);
+}
+
+.admin-topbar {
+    height: 56px;
+    background: #ffffff;
+    border-bottom: 1px solid var(--border-light);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1.5rem;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+}
+
+.topbar-left {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+}
+
+.topbar-badge {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #475569;
+    background: #f1f5f9;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+}
+
+.topbar-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.topbar-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.4rem 0.75rem;
+    border: 1px solid var(--border-light);
+    border-radius: 6px;
+    background: #ffffff;
+    color: var(--text-secondary);
+    font-size: 0.84rem;
+    font-weight: 500;
+    transition: all 0.15s ease;
+}
+
+.topbar-link:hover {
+    background: #f8fafc;
+    border-color: #cbd5e1;
+    color: var(--primary-blue);
+    text-decoration: none;
+}
+
+/* Area Konten Utama */
+.admin-content {
+    flex: 1;
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 1.25rem 1.5rem 2.5rem;
+}
+
+.admin-footer {
+    padding: 0.85rem 1.5rem;
+    background: #ffffff;
+    border-top: 1px solid var(--border-light);
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+.admin-footer p { margin: 0; }
+
+/* ==========================================================================
+   Header Pengelolaan Data Gereja (Gambar 3 Jurnal)
+   ========================================================================== */
+.journal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+    flex-wrap: wrap;
+}
+
+.journal-header-left {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.journal-title {
+    margin: 0;
+    font-size: 1.45rem;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.journal-subtitle {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #64748b;
+    font-weight: 400;
+}
+
+.journal-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+/* Tombol Aksi */
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 38px;
+    padding: 0.5rem 0.9rem;
+    border: 1px solid var(--border-light);
+    border-radius: 6px;
+    background: #ffffff;
+    color: var(--text-primary);
+    font: inherit;
+    font-size: 0.88rem;
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.button.btn-terracotta {
+    background-color: var(--btn-terracotta);
+    border-color: var(--btn-terracotta);
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.button.btn-terracotta:hover {
+    background-color: var(--btn-terracotta-hover);
+    border-color: var(--btn-terracotta-hover);
+    text-decoration: none;
+}
+
+.button.secondary {
+    background: #ffffff;
+    border-color: #cbd5e1;
+    color: #334155;
+}
+
+.button.secondary:hover {
+    background: #f8fafc;
+    border-color: #94a3b8;
+    text-decoration: none;
+}
+
+.button.small {
+    min-height: 30px;
+    padding: 0.25rem 0.55rem;
+    font-size: 0.82rem;
+}
+
+.inline-form {
+    display: inline;
+    margin: 0;
+}
+
+/* ==========================================================================
+   Empat Kartu Ringkasan (Gambar 3 Jurnal)
+   ========================================================================== */
+.stats-grid-journal {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+}
+
+.stat-card-journal {
+    background: #ffffff;
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.35rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+.stat-card-journal .stat-label {
+    font-size: 0.82rem;
+    color: #64748b;
+    font-weight: 500;
+}
+
+.stat-card-journal .stat-value {
+    font-size: 1.65rem;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.2;
+}
+
+/* ==========================================================================
+   Layout Dua Kolom: Form (Kiri) & Peta (Kanan)
+   ========================================================================== */
+.admin-two-col {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    gap: 1.25rem;
+    align-items: start;
+    margin-bottom: 1.5rem;
+}
+
+.panel-card {
+    background: #ffffff;
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+    overflow: hidden;
+}
+
+.panel-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.9rem 1.25rem;
+    border-bottom: 1px solid var(--border-light);
+    background: #ffffff;
+}
+
+.panel-card-title {
+    margin: 0;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.panel-card-sub {
+    font-size: 0.8rem;
+    color: #64748b;
+    font-weight: 400;
+}
+
+/* Form Tabs Tambah / Ubah */
+.form-tabs {
+    display: flex;
+    gap: 0.35rem;
+}
+
+.tab-btn {
+    padding: 0.3rem 0.75rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 5px;
+    background: #f8fafc;
+    color: #475569;
+    font-size: 0.82rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.15s ease;
+}
+
+.tab-btn:hover {
+    background: #f1f5f9;
+    text-decoration: none;
+}
+
+.tab-btn.active {
+    background: #1e293b;
+    border-color: #1e293b;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.tab-btn.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+/* Form Content */
+.form-panel-body {
+    padding: 1.25rem;
+}
+
+.form-grid-journal {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 0.85rem;
+}
+
+.form-grid-journal label {
+    display: grid;
+    gap: 0.35rem;
+    margin: 0.45rem 0;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.form-grid-journal .wide {
+    grid-column: 1 / -1;
+}
+
+.form-grid-three {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0 0.85rem;
+}
+
+input, select, textarea {
+    width: 100%;
+    min-height: 38px;
+    padding: 0.5rem 0.65rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    background: #ffffff;
+    color: var(--text-primary);
+    font: inherit;
+    font-size: 0.88rem;
+}
+
+textarea { resize: vertical; }
+
+input:focus, select:focus, textarea:focus {
+    outline: 3px solid #bfdbfe;
+    border-color: #2563eb;
+}
+
+.required { color: #dc2626; }
+
+/* Photo Upload Box Preview */
+.photo-upload-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem;
+    border: 1px dashed #cbd5e1;
+    border-radius: 6px;
+    background: #f8fafc;
+    margin-top: 0.35rem;
+}
+
+.photo-preview-box {
+    width: 72px;
+    height: 72px;
+    background: #e2e8f0;
+    border-radius: 6px;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    flex-shrink: 0;
+    border: 1px solid #cbd5e1;
+}
+
+.photo-preview-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.photo-meta-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    font-size: 0.82rem;
+    color: #64748b;
+}
+
+.photo-meta-info strong {
+    color: #1e293b;
+    word-break: break-all;
+}
+
+.photo-meta-info input[type="file"] {
+    font-size: 0.8rem;
+    min-height: auto;
+    padding: 0.25rem 0;
+    border: none;
+    background: transparent;
+}
+
+/* Form Actions */
+.form-actions-journal {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.75rem;
+    margin-top: 1.25rem;
+}
+
+/* ==========================================================================
+   Panel Penentuan Koordinat (Gambar 3 Jurnal)
+   ========================================================================== */
+.map-panel-body {
+    padding: 1.25rem;
+}
+
+.map-container-relative {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--border-light);
+}
+
+#coordinate-map {
+    height: 380px;
+    width: 100%;
+    background: #e2e8f0;
+}
+
+.map-helper-badge {
+    position: absolute;
+    bottom: 25px;
+    left: 10px;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid #b93826;
+    border-left: 4px solid #b93826;
+    padding: 0.45rem 0.65rem;
+    font-size: 0.78rem;
+    color: #334155;
+    border-radius: 4px;
+    max-width: 290px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    line-height: 1.35;
+    pointer-events: none;
+}
+
+.map-bottom-controls {
+    display: flex;
+    align-items: flex-end;
+    gap: 0.75rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+
+.map-coord-input-group {
+    flex: 1;
+    min-width: 130px;
+    display: grid;
+    gap: 0.3rem;
+}
+
+.map-coord-input-group label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #475569;
+}
+
+.btn-apply-coords {
+    min-height: 38px;
+    white-space: nowrap;
+}
+
+/* Marker Tooltip Gelap (Gambar 3 Jurnal) */
+.admin-marker-tooltip {
+    background: rgba(15, 23, 42, 0.92) !important;
+    color: #ffffff !important;
+    border: none !important;
+    border-radius: 6px !important;
+    padding: 0.45rem 0.7rem !important;
+    font-size: 0.82rem !important;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25) !important;
+    text-align: center;
+}
+
+.admin-marker-tooltip strong {
+    color: #ffffff;
+    display: block;
+    font-size: 0.84rem;
+}
+
+.admin-marker-tooltip span {
+    color: #38bdf8;
+    font-size: 0.76rem;
+    font-family: monospace;
+}
+
+.admin-marker-tooltip::before {
+    border-top-color: rgba(15, 23, 42, 0.92) !important;
+}
+
+/* ==========================================================================
+   Tabel Daftar Gereja GSJA (Gambar 3 Jurnal)
+   ========================================================================== */
+.table-panel {
+    background: #ffffff;
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+    padding: 1.25rem;
+}
+
+.table-panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.table-panel-header h2 {
+    margin: 0;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.table-panel-header .data-badge {
+    font-size: 0.84rem;
+    color: #64748b;
+    font-weight: 500;
+}
+
+.table-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+.table-search-box {
+    width: min(300px, 100%);
+}
+
+.table-district-select {
+    width: auto;
+    min-width: 190px;
+}
+
+.table-wrap {
+    overflow-x: auto;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+}
+
+.data-table th, .data-table td {
+    padding: 0.75rem 0.65rem;
+    border-bottom: 1px solid var(--border-light);
+    text-align: left;
+    vertical-align: middle;
+}
+
+.data-table th {
+    color: #475569;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    background: #f8fafc;
+}
+
+.data-table tbody tr:hover {
+    background: #f8fafc;
+}
+
+/* Row terpilih pada tabel saat Ubah */
+.data-table tbody tr.row-selected {
+    background-color: #fff1f2 !important;
+}
+
+.col-no { width: 45px; text-align: center; }
+.col-aksi { white-space: nowrap; width: 120px; }
+
+.btn-action-ubah {
+    color: #2563eb;
+    font-weight: 600;
+    text-decoration: none;
+    margin-right: 0.65rem;
+}
+
+.btn-action-ubah:hover {
+    text-decoration: underline;
+}
+
+.btn-action-hapus {
+    color: #dc2626;
+    font-weight: 600;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    font: inherit;
+    font-size: 0.88rem;
+}
+
+.btn-action-hapus:hover {
+    text-decoration: underline;
+}
+
+.badge-foto {
+    display: inline-block;
+    margin-left: 0.45rem;
+    font-size: 0.75rem;
+    color: #0284c7;
+    background: #e0f2fe;
+    padding: 0.15rem 0.4rem;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+.badge-foto:hover {
+    background: #bae6fd;
+    text-decoration: none;
+}
+
+.table-pagination-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1rem;
+    font-size: 0.84rem;
+    color: #64748b;
+}
+
+.pagination-ctrl {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    color: #1e293b;
+}
+
+/* ==========================================================================
+   Alert Flash Messages
+   ========================================================================== */
+.flash {
+    padding: 0.8rem 1rem;
+    border: 1px solid #bbf7d0;
+    border-radius: 7px;
+    background: #f0fdf4;
+    color: #166534;
+    margin-bottom: 1.25rem;
+}
+
+.flash.error {
+    border-color: #fecaca;
+    background: #fef2f2;
+    color: #991b1b;
+}
+
+.flash ul {
+    margin: 0.2rem 0;
+    padding-left: 1.25rem;
+}
+
+/* ==========================================================================
+   Halaman Login Terisolasi (Auth Page)
+   ========================================================================== */
+.auth-page {
+    display: grid;
+    min-height: 100vh;
+    place-items: center;
+    padding: 1.5rem;
+    background: #f1f5f9;
+}
+
+.auth-card {
+    width: min(420px, 100%);
+    padding: 2rem;
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    background: #ffffff;
+    box-shadow: 0 4px 20px rgba(15, 23, 42, 0.08);
+}
+
+.auth-card h1 {
+    margin: 1rem 0 0.3rem;
+    font-size: 1.5rem;
+    color: var(--text-primary);
+}
+
+.auth-card > p {
+    margin-top: 0;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.back-link {
+    color: var(--primary-blue);
+    font-size: 0.88rem;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+.auth-card .button {
+    width: 100%;
+    margin-top: 0.75rem;
+}
+
+.small-note {
+    margin-top: 1.25rem;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* ==========================================================================
+   Responsivitas (Mobile & Tablet)
+   ========================================================================== */
+@media (max-width: 1100px) {
+    .admin-two-col {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 950px) {
+    .stats-grid-journal {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 860px) {
+    .admin-wrapper {
+        flex-direction: column;
+    }
+    .admin-sidebar {
+        width: 100%;
+        height: auto;
+        position: static;
+        border-right: none;
+        border-bottom: 1px solid var(--navy-border);
+    }
+    .sidebar-brand {
+        padding: 0.85rem 1rem;
+    }
+    .sidebar-profile {
+        padding: 0.75rem 1rem;
+    }
+    .sidebar-nav {
+        padding: 0.75rem 1rem;
+    }
+    .nav-list {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+    }
+    .nav-link {
+        padding: 0.45rem 0.7rem;
+    }
+    .sidebar-footer {
+        padding: 0.75rem 1rem;
+    }
+    .admin-topbar {
+        padding: 0 1rem;
+    }
+    .admin-content {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 650px) {
+    .journal-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+    .form-grid-journal {
+        grid-template-columns: 1fr;
+    }
+    .form-grid-three {
+        grid-template-columns: 1fr;
+    }
+    #coordinate-map {
+        height: 320px;
+    }
+    .data-table, .data-table tbody, .data-table tr, .data-table td {
+        display: block;
+        width: 100%;
+    }
+    .data-table thead {
+        display: none;
+    }
+    .data-table tr {
+        padding: 0.5rem 0;
+        border-bottom: 1px solid var(--border-light);
+    }
+    .data-table td {
+        display: grid;
+        grid-template-columns: 130px minmax(0, 1fr);
+        gap: 0.5rem;
+        padding: 0.45rem 0.25rem;
+        border: 0;
+    }
+    .data-table td::before {
+        content: attr(data-label);
+        color: var(--text-secondary);
+        font-size: 0.8rem;
+        font-weight: 600;
+    }
+}
+
+/* ==========================================================================
+   Dashboard Widgets & Penentuan Koordinat / Foto Enhancements
+   ========================================================================== */
+.dashboard-widget-body {
+    padding: 1.25rem;
+}
+
+.district-stat-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+}
+
+.district-stat-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.district-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+}
+
+.district-meta strong {
+    color: #1e293b;
+}
+
+.district-meta span {
+    color: #64748b;
+}
+
+.district-progress-bar {
+    width: 100%;
+    height: 7px;
+    background: #e2e8f0;
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.district-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #1e40af, #3b82f6);
+    border-radius: 999px;
+}
+
+.quick-status-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.quick-status-box {
+    padding: 1rem;
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    background: #f8fafc;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.quick-status-title {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #475569;
+}
+
+.quick-status-num {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.quick-status-desc {
+    margin: 0 0 0.5rem;
+    font-size: 0.78rem;
+    color: #64748b;
+    line-height: 1.35;
+}
+
+.dashboard-banner-note {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    padding: 0.75rem 0.9rem;
+    border-radius: 6px;
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    color: #1e40af;
+    font-size: 0.82rem;
+    line-height: 1.4;
+}
+
+.badge-status {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.2rem 0.55rem;
+    border-radius: 4px;
+    font-size: 0.76rem;
+    font-weight: 600;
+}
+
+.badge-status.success {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+.badge-status.warning {
+    background: #ffedd5;
+    color: #c2410c;
+}
+
+@media (max-width: 650px) {
+    .quick-status-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
